@@ -215,6 +215,18 @@ Como protecciones, la línea de 12 V del calefactor lleva un fusible de 3 A y ca
 Los circuitos  van en una caja plástica o de carton,  frente van la OLED, los LEDs, los interruptores y el botón de tara. Los cables de la cabina entran por dos prensaestopas. La siguiente tabla muestra las conexiones de la ESP32-S3.
 
 
+<img width="802" height="312" alt="image" src="https://github.com/user-attachments/assets/f729ab47-66a9-427a-84ba-55533ae14cbb" />
+
+
+Panel de LEDs
+El panel tiene tres LEDs de 5 mm con resistencias de 220 Ω. El verde se enciende cuando la temperatura está entre 36 °C y 37,5 °C, el rojo de abajo cuando está por debajo de 36 °C y el rojo de arriba cuando está por encima de 37,5 °C. Si el sensor falla se encienden los dos rojos, y así se nota que algo anda mal. Los LEDs tienen una histeresis de 0,1 °C para que no parpadeen cuando la temperatura está justo en el borde.
+
+Base y celda de carga
+Para pesar se armó una unidad con dos placas, 1 de acrílico y otra de madera de acrílico de 25 × 15 cm. La placa de abajo es de madera y  se apoya en la base de icopor y la de arriba es el acrílico y  es la plataforma donde va el peso. Entre las dos queda la celda de carga de 5 kg: un extremo se atornilla a la placa de abajo y el otro a la plataforma, y cada uno lleva separadores de 8 mm. Así, cuando algo pesa sobre la plataforma, la celda se flexiona un poco y el HX711 convierte esa flexión en un número. Los separadores tienen que ser rígidos, porque con goma o espuma la lectura se mueve sola. Sobre la plataforma va un colchón de espuma.
+
+La unidad se probó primero fuera de la cabina y después se instaló adentro, centrada, a unos 10 cm del extremo del calefactor y a más de 5 cm de él. La plataforma y el colchón quedan a más de 1 cm de las paredes, para que nada se apoye en la cabina. El cable de la celda sale por el agujero hecho en un extremo de la cabina. 
+
+La celda se conecta al HX711 y este a la ESP32-S3, que muestra la temperatura y el peso en una pantalla OLED. El botón tiene dos funciones, una pulsación corta con la plataforma vacía hace la tara, y mantenerlo 3 segundos con una pesa patrón encima calibra. La tara y la calibración quedan guardadas en la memoria, así que siguen ahí después de apagar el equipo. Como cada celda es distinta, se calibra con la pesa más pesada que se tenga, porque una pesa muy liviana da una calibración menos precisa. 
 
 
 
