@@ -49,7 +49,9 @@ En el control ON/OFF el calefactor solo tiene dos estados, encendido a plena pot
 En el control PI, que es el proporcional-integral, la potencia no es de todo o nada, sino que se calcula en cada instante a partir del error, que es la diferencia entre la temperatura que se quiere y la que se mide. Una parte de la potencia es proporcional al error y la otra es proporcional a cuánto error se ha acumulado en el tiempo:
 
 $$
+
 u(t) = K_p e(t) + K_i \int_0^t e(\tau)\,d\tau
+
 $$
 
 La parte integral es la que permite que el error final sea cero, porque sigue aumentando la potencia mientras la temperatura no llegue a la deseada [10]. Para entregar una potencia intermedia se usa modulación por ancho de pulso (PWM), que consiste en encender y apagar el calefactor muy rápido y variar la fracción del tiempo que permanece encendido. Así el calefactor trabaja a la potencia justa y la temperatura se estabiliza en lugar de oscilar. Este es el control que terminamos usando.
@@ -75,6 +77,7 @@ $$
 \frac{1}{T} = \frac{1}{T_0} + \frac{1}{\beta}\ln\frac{R}{R_0}
 
 $$
+
 donde T0 = 298,15 K (25 °C), R0 = 10 kΩ y β = 3950 K.
 
 Controlador PI
