@@ -101,11 +101,27 @@ Simulación del lazo cerrado
 Proteus no tiene un modelo térmico de la cabina, así que para ver el lazo completo corrimos el mismo código del microcontrolador junto con un modelo térmico de la cabina. Ese modelo tiene varias partes (calefactor, aire, paredes y sensor) y sus valores son estimados. Simulamos un ambiente de 16 °C, un calefactor de 28,8 W y la tapa abierta durante 30 segundos en el minuto 150. La siguiente imagen muestra la temperatura y la potencia, y la tabla resume los resultados.
 
 
+<img width="765" height="681" alt="image" src="https://github.com/user-attachments/assets/74e74df0-a2de-4941-afc3-628e48a3afd6" />
+
+
 <img width="825" height="573" alt="image" src="https://github.com/user-attachments/assets/141b2f9d-7a5d-45b5-a076-2c4474d6e7c8" />
+
 
 <img width="762" height="311" alt="image" src="https://github.com/user-attachments/assets/679ba3d8-e4f4-46fb-bc15-fcb122a29239" />
 
 
+<img width="1568" height="711" alt="image" src="https://github.com/user-attachments/assets/c73d7fd1-9580-41b1-9b91-03377d371c5e" />
+
+
+
+<img width="1568" height="653" alt="image" src="https://github.com/user-attachments/assets/e84e5ee5-cd38-40d4-87ba-f5e460b35f42" />
+
+
+
+<img width="1568" height="592" alt="image" src="https://github.com/user-attachments/assets/35c21f24-8c57-4257-bdcd-472b82845c8b" />
+
+
+![Uploading image.png…]()
 
 En la gráfica se ve que el calefactor trabaja al 100 % hasta que la temperatura se acerca a lo deseado, y después baja la potencia solo hasta quedarse en un 74 %, sin pasarse del rango. Cuando se abre la tapa la temperatura cae, el calefactor sube otra vez al máximo y el sistema se recupera. Estos resultados dependen del modelo estimado, por eso en la Parte B se comparan con la prueba real.
 Simulación del circuito en Proteus
