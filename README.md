@@ -180,10 +180,45 @@ para cada caso un LED rojo).
 c. La incubadora debe contar con una galga o sensor de fuerza que permita
 estimar el peso del recién nacido, el cual deberá mostrarse mediante una
 pantalla LCD, o bien, mediante displays 7-segmentos.
+
 d. Calcule el costo total del sistema desarrollado especificando también el
 costo parcial de cada una de las partes.
 
-3. Calcule el costo total del sistema desarrollado especificando también el costo
+
+La guía pide construir una incubadora a escala con una cubierta transparente que pierda poco calor y se pueda abrir y cerrar, un ventilador y una resistencia para calentar por convección, un panel de tres LEDs y un sensor de fuerza con pantalla para el peso. La siguiente tabla resume cada requisito y cómo lo cumplimos.
+
+
+<img width="1018" height="465" alt="image" src="https://github.com/user-attachments/assets/de41c186-f4ee-4b8b-860b-b90670b0bb94" />
+
+
+Cabina
+La cabina es una caja de acrílico de doble pared, una piel interior de 3 mm, una cámara de 10 mm de aire y una piel exterior de 3 mm. El aire encerrado ayuda a que se pierda menos calor, y el acrílico deja ver el interior en todo momento. Las 32 piezas se mandaron a cortar a medida. El interior queda de 45 × 21 × 23 cm y el exterior de 48,2 × 24,2 cm de planta.
+
+Se armó en este orden, primero la caja interior, pegada por las esquinas; luego las tiras separadoras verticales y horizontales, que mantienen los 10 mm de aire; y al final las pieles exteriores, las largas y las de los extremos. Para pegar se usó cloruro de metileno y después se dejó secar 24 horas.
+
+La tapa es un sándwich de 1,6 cm, una lámina grande abajo, un marco de cuatro tiras en el medio y una lámina más pequeña arriba. La lámina grande cubre todo el borde de la cabina y aprieta un burlete de espuma, que sella la unión. La tapa se abre con dos bisagras en el lado trasero y una perilla en el frente.
+
+La cabina va sobre una base de icopor de 40 mm. La base tiene un agujeros de 10 mm.  para los cables de potencia (calefactor y ventilador) y  para los cables de sensores (NTC y celda de carga). 
+
+Calefacción y ventilación
+El calor lo producen dos resistencias de 10 Ω y 20 W en paralelo, que dan 5 Ω y 28,8 W a 12 V, es decir, una corriente de 2,4 A. Se usaron dos de 10 Ω porque en la tienda local solo había resistencias de potencia de ese valor. Cada una trabaja a 14,4 W, el 72 % de su potencia nominal. Con tres en paralelo la corriente sería de 3,6 A, y eso pasa de los 3 A de la fuente. Las resistencias se atornillan sobre una placa de aluminio de 2 mm que reparte el calor, y la placa queda elevada 10 mm del piso con separadores.
+
+El ventilador  de 12 V  sopla sobre el calefactor y reparte el aire caliente por toda la cabina por convección y el ventilador está siempre encendido. El sensor de temperatura es un termistor NTC de 10 kΩ (β = 3950) soldado a un cable de dos hilos, y se fija dentro de la cabina.
+
+Electrónica y alimentación
+Se usaron dos fuentes de 12 V y 3 A. La fuente 1 alimenta solo el calefactor, para que su corriente no afecte a la electrónica. La fuente 2 alimenta el ventilador y, a través de un reductor LM2596 ajustado a 5 V, la ESP32-S3. Los LEDs, el divisor del NTC, el HX711 y la OLED trabajan a 3,3 V.
+
+Es el mismo circuito de la temperatura con la ESP32-S3 en lugar del ATmega328P de Proteus. El NTC con su resistencia de 10 kΩ entra al conversor analógico de la ESP32, y una salida PWM maneja la compuerta de un MOSFET de nivel lógico IRLB8721 (con una resistencia de 100 Ω en serie y otra de 10 kΩ a tierra) que conecta y desconecta el calefactor. En paralelo con el calefactor hay un diodo 1N4007 de protección. Entre +12 V y tierra, junto al MOSFET, hay un condensador de 2200 µF que estabiliza la línea cuando el PWM enciende y apaga el calefactor. El ventilador lo maneja un transistor BC337 con su diodo.
+
+Como protecciones, la línea de 12 V del calefactor lleva un fusible de 3 A y cada fuente tiene su interruptor y el corte por sobretemperatura (38,5 °C) y por falla del sensor que ya hace el programa.
+
+Los circuitos  van en una caja plástica o de carton,  frente van la OLED, los LEDs, los interruptores y el botón de tara. Los cables de la cabina entran por dos prensaestopas. La siguiente tabla muestra las conexiones de la ESP32-S3.
+
+
+
+
+
+2. Calcule el costo total del sistema desarrollado especificando también el costo
 parcial de cada una de las partes. Compare esto con soluciones comerciales
 ofrecidas por proveedores como, por ejemplo, Dräguer, Instrumentalia S.A.S. y
 LEEX Medical.
