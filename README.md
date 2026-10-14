@@ -80,6 +80,34 @@ donde T0 = 298,15 K (25 °C), R0 = 10 kΩ y β = 3950 K.
 Controlador PI
 En el controlador la entrada es la temperatura medida, la salida es la fracción de potencia que se le manda al calefactor, y el estado es el valor acumulado del integrador. El error es la consigna menos la temperatura medida, y la potencia se calcula así:
 
+
+$$
+
+u(t) = K_c\left[e(t) + \frac{1}{T_i}\int_0^t e(\tau)\,d\tau\right], \qquad e(t) = 36{,}75 - T(t)
+
+$$
+
+Los valores que usamos son Kc = 0,294 por cada °C, es decir, 29,4 % de potencia por cada grado de error y Ti = 300 s, con una muestra cada segundo. Se escogieron por simulación, buscando que la temperatura entrara al rango sin pasarse de 37,5 °C.
+
+Un detalle importante es que mientras el calefactor está al 100 %, el integrador sigue acumulando error y cuando la temperatura llega a la temperatura deseada esa acumulación hace que se pase de largo. Para evitarlo se agregó un anti-windup por cálculo inverso, con constante Tt = 150 s, que va descargando el integrador mientras la salida está saturada [10]. La potencia se entrega con PWM, el MOSFET enciende y apaga el calefactor cerca de mil veces por segundo, y la potencia promedio depende de qué fracción del tiempo está encendido.
+
+Seguridad e indicadores
+Si la temperatura pasa de 38,5 °C, el controlador apaga el calefactor y reinicia el integrador. Si el NTC se abre o se pone en corto, también se apaga el calefactor y se encienden los dos LEDs rojos. El LED verde indica que la temperatura está dentro de 36 °C y 37,5 °C, y los rojos indican que está por debajo o por encima. Los LEDs tienen una histéresis de 0,1 °C para que no parpadeen cuando la temperatura está justo en el borde.
+
+Simulación del lazo cerrado
+Proteus no tiene un modelo térmico de la cabina, así que para ver el lazo completo corrimos el mismo código del microcontrolador junto con un modelo térmico de la cabina. Ese modelo tiene varias partes (calefactor, aire, paredes y sensor) y sus valores son estimados. Simulamos un ambiente de 16 °C, un calefactor de 28,8 W y la tapa abierta durante 30 segundos en el minuto 150. La siguiente imagen muestra la temperatura y la potencia, y la tabla resume los resultados.
+
+
+<img width="825" height="573" alt="image" src="https://github.com/user-attachments/assets/141b2f9d-7a5d-45b5-a076-2c4474d6e7c8" />
+
+<img width="762" height="311" alt="image" src="https://github.com/user-attachments/assets/679ba3d8-e4f4-46fb-bc15-fcb122a29239" />
+
+
+
+En la gráfica se ve que el calefactor trabaja al 100 % hasta que la temperatura se acerca a lo deseado, y después baja la potencia solo hasta quedarse en un 74 %, sin pasarse del rango. Cuando se abre la tapa la temperatura cae, el calefactor sube otra vez al máximo y el sistema se recupera. Estos resultados dependen del modelo estimado, por eso en la Parte B se comparan con la prueba real.
+Simulación del circuito en Proteus
+El circuito se armó en Proteus con el ATmega328P cargado con el programa PI, el NTC con su divisor, el MOSFET IRLZ44N, el calefactor de 5 Ω con su diodo de protección, el ventilador con el BC337, los tres LEDs y un terminal virtual para ver los datos.
+
 3. Diseñe y simule un circuito eléctrico que mida el peso y lo muestre mediante
 una pantalla de cristal líquido (LCD), o bien, mediante displays 7-segmentos.
 
