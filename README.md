@@ -31,10 +31,30 @@ como también la función que desempeñan, mediante una revisión de la
 literatura relacionada. En caso de utilizar modelos de IA generativa (e.g., ChatGPT) debe verificar la información contra una fuente confiable (e.g., libros,
 manuales, informes técnicos).
 
-2. Diseñe y simule un circuito eléctrico a modo de sistema de control de lazo
+Una incubadora neonatal es un equipo que mantiene al recién nacido en un microambiente controlado. Un bebé y sobre todo uno prematuro, pierde calor por cuatro vías, convección, conducción, radiación y evaporación. La incubadora actúa sobre varias de ellas al mismo tiempo ya que calienta el aire que rodea al bebé, lo hace circular, lo aísla de las corrientes del exterior con una cabina cerrada y en muchos casos aporta humedad para reducir la evaporación por la piel, ya que la humidificación influye en la pérdida de agua y ayuda a la termorregulación [13]. Además, la norma IEC 60601-2-19 define los requisitos de seguridad y de funcionamiento que debe cumplir este tipo de equipo [11].
+
+Es importante no confundirla con la servo-cuna, la servo-cuna es una cama abierta que calienta por radiación, lo que da acceso total al bebé pero deja menos control sobre el ambiente, y además aumenta la pérdida de agua por la piel. La incubadora, en cambio, calienta por convección dentro de un espacio cerrado y se recomienda sobre todo para prematuros muy pequeños durante sus primeras semanas de vida [7].
+
+La siguiente tabla resume las partes principales, la función de cada una y con qué la reemplazamos en el prototipo.
+
+
+<img width="900" height="607" alt="image" src="https://github.com/user-attachments/assets/f22d975f-84a8-4cfe-bdac-c62387e45df4" />
+
+
+En los equipos comerciales el control de temperatura puede hacerse de dos formas. En el modo aire, el sensor mide el aire de la cabina y el equipo lo mantiene en un valor fijo. En el modo piel o servo-control, se pega un sensor al abdomen del bebé y el controlador ajusta el calefactor para que sea la piel la que se mantenga en el valor deseado. Por ejemplo, la ficha de la Isolette 8000 plus de Dräger indica que su regulación usa un algoritmo PID y que tiene modo piel [12]. En nuestro modelo usamos el modo aire, porque no hay un bebé al cual medirle la piel y la guía pide mantener la cabina entre 36 °C y 37,5 °C. Ese rango se parece al que se recomienda para la temperatura del recién nacido, de 36,5 °C a 37,5 °C [6].
+
+Modos de control de temperatura: ON/OFF y PI
+
+En el control ON/OFF el calefactor solo tiene dos estados, encendido a plena potencia o apagado. Se enciende cuando la temperatura baja de un límite inferior y se apaga cuando sube de un límite superior. Esa diferencia entre los dos límites se llama histéresis, y sirve para que el calefactor no se encienda y apague a cada instante cuando la temperatura está justo en el borde. Es un control muy simple de construir, pero la temperatura nunca se queda quieta, sino que oscila todo el tiempo dentro de esa banda. 
+En el control PI, que es el proporcional-integral, la potencia no es de todo o nada, sino que se calcula en cada instante a partir del error, que es la diferencia entre la temperatura que se quiere y la que se mide. Una parte de la potencia es proporcional al error y la otra es proporcional a cuánto error se ha acumulado en el tiempo:
+
+u(t) = K_p\,e(t) + K_i \int_0^t e(\tau)\,d\tau
+
+
+3. Diseñe y simule un circuito eléctrico a modo de sistema de control de lazo
 cerrado, capaz de mantener la temperatura dentro de un rango 36°C y 37,5°C.
 
-3. Diseñe y simule un circuito eléctrico que mida el peso y lo muestre mediante
+4. Diseñe y simule un circuito eléctrico que mida el peso y lo muestre mediante
 una pantalla de cristal líquido (LCD), o bien, mediante displays 7-segmentos.
 
 
