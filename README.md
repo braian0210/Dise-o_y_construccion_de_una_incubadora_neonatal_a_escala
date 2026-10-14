@@ -1,6 +1,11 @@
 # Diseno_y_construccion_de_una_incubadora_neonatal_a_escala
 # Introducción
 
+La incubadora neonatal es un equipo médico que trata de crear un ambiente parecido al del vientre materno, para que el recién nacido pueda sobrevivir y desarrollarse bien [1], [2]. De todas las condiciones que se controlan, la temperatura es la más importante, y debe mantenerse alrededor de los 37 °C [3]. Esto se logra con un ventilador que mueve el aire del ambiente y lo hace pasar por un elemento que calienta por ejemplo una resistencia hasta llegar a la temperatura que se quiere.
+El control de la temperatura juega un papel importante en los bebés prematuros ya que ellos tienen  el sistema nervioso menos maduro, por eso les cuesta mucho regular su propia temperatura [4]. En países tropicales el problema es doble, porque la temperatura puede llegar a 40 °C y el recién nacido corre el riesgo de sufrir hipertermia [5]. Por eso además de calentar, una incubadora real también debería poder enfriar, y eso la hace más costosa.
+En este laboratorio se construyó una incubadora neonatal a escala que imita la forma de operar de una real. Primero, en la parte A, se identificaron las partes principales de una incubadora y la función de cada una, y se diseñaron y simularon dos circuitos, uno para mantener la temperatura entre 36 °C y 37,5 °C en lazo cerrado y otro para medir el peso y mostrarlo en una pantalla. Después en la Parte B se armó el prototipo con una cabina transparente, un ventilador, resistencias para calentar, un panel de tres leds que indica si la temperatura está dentro del rango, y una celda de carga para estimar el peso. También se calculó el costo del sistema y se comparó con equipos comerciales. Por último, en la Parte C se documentó todo el procedimiento y se organizó en un repositorio de GitHub.
+La práctica es importante porque muestra lo exigente que es controlar variables como la temperatura en un dispositivo biomédico y también deja ver qué pasa si el equipo falla. Un sobrecalentamiento o una medición de peso mal calculada pueden afectar directamente la salud del bebé, y eso es algo que como ingenieros biomédicos tenemos que tener presente.
+
 # Objetivos 
 Objetivo General
 
@@ -76,3 +81,7 @@ incubadora neonatal real?
 servo-cuna?
 
 Conclusión 
+
+Referencias
+
+
