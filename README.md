@@ -235,8 +235,31 @@ parcial de cada una de las partes. Compare esto con soluciones comerciales
 ofrecidas por proveedores como, por ejemplo, Dräguer, Instrumentalia S.A.S. y
 LEEX Medical.
 
+Para el costo se agruparon los gastos por las partes principales del montaje, porque poner cada componente por separado haría la tabla muy larga. 
+
+
+<img width="917" height="340" alt="image" src="https://github.com/user-attachments/assets/d77a16d2-05aa-4c40-bdaa-941dc023434d" />
+
+Comparación con soluciones comerciales
+
+La siguiente tabla compara el prototipo con tres incubadoras comerciales, la Isolette 8000 de Dräger, la YP2000 de Instrumentalia S.A.S. y la B3 de LEEX Medical. Los datos salen de las fichas que publican los fabricantes o sus distribuidores. Lo que no aparece en la ficha consultada se deja indicado así, sin suponerlo. Las especificaciones de la Isolette 8000 se tomaron de la ficha de un distribuidor [17], y la información de su regulación PID y su modo piel, de la página de Dräger [12].
+
+<img width="1608" height="626" alt="image" src="https://github.com/user-attachments/assets/ce03cb6e-e54a-4ce0-8f77-c4503a225c9c" />
+
+Lo primero que se nota es el alcance. Los equipos comerciales trabajan en modo aire y en modo piel, miden más variables y tienen alarmas más completas. La Isolette 8000 y la YP2000 pueden regular el calor a partir de la temperatura de la piel del bebé, algo que el prototipo no hace porque solo mide el aire de la cabina [12], [15], [17]. Además controlan humedad y oxígeno, y el equipo de LEEX ofrece incluso el cambio de posición del colchón [16]. En lo que sí se parece el prototipo es en la estructura básica, una cabina cerrada de doble pared, un calefactor con control PI o PID, un ventilador y el pesaje del bebé sin sacarlo de la incubadora.
+
+Las limitaciones del prototipo frente a estos equipos son varias. No tiene modo piel ni control de humedad u oxígeno, las alarmas son solo visuales con los LEDs, y la báscula se usa únicamente hasta unos pocos kg de la celda de 5kg, mientras que la de la YP2000 declara un rango de 100 a 8000 g con resolución de 1 g [15]. Tampoco tiene la certificación que exige la norma para un equipo médico [11], por lo que no se puede usar con un bebé real. Se hizo para entender cómo funcionan el lazo de control y la medición de peso, no para reemplazar un equipo. 
+
+En el precio es donde más se separan. El prototipo costó unos $410.000 COP y la YP2000 se vende en $53.391.350 COP con impuestos [15], es decir, unas 130 veces más. Para LEEX, un distribuidor colombiano vende un B3 de Comen, con la misma descripción técnica que la ficha de LEEX, en $30.710.000 COP sin IVA [21]. De Dräger no hay precio público de un equipo nuevo y solo se encontraron ofertas de equipos usados o reacondicionados, desde unos USD 1.600 hasta USD 3.000 [18], [19], con una oferta de €4.500 [20]. Esa diferencia no se puede leer como un sobrecosto, porque en un equipo comercial el valor incluye la certificación, el control por piel, la humedad, el oxígeno, las alarmas y el soporte técnico. La garantía de la YP2000 y la del equipo de LEEX es de un año [15], [16].
+
+
 Parte C
-Preguntas de Discusión
+
+Preguntas de Discusión y Resultados
+
+Para ver si el control funciona se hizo una prueba de calentamiento en el prototipo, con la tapa cerrada, y se comparó con la simulación de la Parte A. La prueba se hizo en una casa, con una temperatura ambiente de unos 23 °C, y la temperatura de la cabina se midió con la termocupla de un multímetro. No se llevó un registro escrito cada cierto tiempo, así que los valores de la prueba real son aproximados.
+
+
 
 • Pregunta 1: ¿Qué otras variables (y por qué) además de las aquí
 mencionadas son críticas en el monitoreo neonatal?
