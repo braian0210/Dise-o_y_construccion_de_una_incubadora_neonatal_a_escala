@@ -260,6 +260,18 @@ Preguntas de Discusión y Resultados
 Para ver si el control funciona se hizo una prueba de calentamiento en el prototipo, con la tapa cerrada, y se comparó con la simulación de la Parte A. La prueba se hizo en una casa, con una temperatura ambiente de unos 23 °C, y la temperatura de la cabina se midió con la termocupla de un multímetro. No se llevó un registro escrito cada cierto tiempo, así que los valores de la prueba real son aproximados.
 
 
+<img width="662" height="206" alt="image" src="https://github.com/user-attachments/assets/d8808c98-0325-4c76-9625-bb50f82a9679" />
+
+
+La prueba confirma que el calefactor y el control llevan la cabina hasta el rango de 36 a 37,5 °C, pero mucho más despacio de lo que dijo la simulación. Eso llama la atención porque la prueba empezó 7 °C más caliente que la simulación y aun así tardó más de dos veces y media el tiempo. Lo que sí se parece es el ritmo en la mitad del calentamiento: de 28 a 31 °C la simulación tardó 8 minutos y el prototipo unos 10. La diferencia grande está al principio, cuando la simulación ya iba en 33,3 °C a los 30 minutos y el prototipo apenas en 27 o 28 °C, y en que los últimos grados fueron los más lentos.
+
+Lo más probable es que el modelo térmico de la simulación sea optimista, porque sus valores fueron estimados y no medidos. El prototipo real tiene más masa que calentar, ya que además del aire se calientan las paredes de acrílico de doble pared, la base de icopor y la placa. También pierde calor por lugares que el modelo no incluye, como las bisagras, los agujeros de los cables y el borde de la tapa. Además, la potencia que llega al calefactor puede ser menor que los 28,8 W calculados, por la caída de voltaje en los cables, el fusible y el MOSFET. A medida que la cabina se calienta, la diferencia con el ambiente crece y se pierde más calor, por eso los últimos grados tardan tanto. Estas causas son explicaciones probables.
+
+Para medir el error de la báscula se usan masas conocidas, que hacen de patrón. Primero se hace la tara con la plataforma vacía y se calibra con la masa más pesada. Después se pone cada una de las otras masas, por ejemplo de 100 g, 500 g, 1 kg y 2 kg, centradas sobre la plataforma, y se anota la lectura de la pantalla. Cada masa se mide varias veces para sacar un promedio. En cada caso se calcula el error absoluto, que es la lectura menos la masa patrón, y el error relativo, que es ese error dividido entre la masa patrón y multiplicado por 100. La prueba se debe repetir con la masa en las esquinas de la plataforma, para ver si la lectura cambia con la posición, y con la cabina caliente, para ver si la temperatura afecta la celda.
+
+En lo que el prototipo hace, que es calentar por convección con un control PI, mantener la cabina entre 36 y 37,5 °C y pesar, cumple la misma función básica que un equipo comercial. Lo que no tiene son los controles y las validaciones que hacen confiable a un equipo real, modo piel, humedad, oxígeno, alarmas completas y certificación. Por ejemplo, la YP2000 declara que la variación de su sensor de piel es menor de 0,5 °C y que su báscula tiene un error de ±1 % [15], y el prototipo todavía no tiene una medición equivalente. La diferencia de precio, de unos $410.000 contra más de $53 millones, se explica en buena parte por todo eso. El prototipo sirve para entender cómo funciona el lazo de control y la medición, pero no como reemplazo de un equipo.
+
+
 
 • Pregunta 1: ¿Qué otras variables (y por qué) además de las aquí
 mencionadas son críticas en el monitoreo neonatal?
