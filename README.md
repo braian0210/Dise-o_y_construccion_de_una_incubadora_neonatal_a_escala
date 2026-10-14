@@ -104,7 +104,8 @@ Proteus no tiene un modelo térmico de la cabina, así que para ver el lazo comp
 <img width="765" height="681" alt="image" src="https://github.com/user-attachments/assets/74e74df0-a2de-4941-afc3-628e48a3afd6" />
 
 
-<img width="825" height="573" alt="image" src="https://github.com/user-attachments/assets/141b2f9d-7a5d-45b5-a076-2c4474d6e7c8" />
+
+<img width="930" height="172" alt="image" src="https://github.com/user-attachments/assets/d28d6147-21bf-4042-ae5a-784ba0ac9570" />
 
 
 <img width="762" height="311" alt="image" src="https://github.com/user-attachments/assets/679ba3d8-e4f4-46fb-bc15-fcb122a29239" />
