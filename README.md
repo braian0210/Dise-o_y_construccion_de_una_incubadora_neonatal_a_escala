@@ -111,6 +111,51 @@ El circuito se armó en Proteus con el ATmega328P cargado con el programa PI, el
 3. Diseñe y simule un circuito eléctrico que mida el peso y lo muestre mediante
 una pantalla de cristal líquido (LCD), o bien, mediante displays 7-segmentos.
 
+El objetivo de este circuito es medir el peso del bebé, hasta 5 kg, y mostrarlo en una pantalla. Pesar al bebé sin sacarlo de la incubadora es una función que ya traen equipos comerciales y algunos prototipos de bajo costo [8], [12]. Para este punto se diseñó el circuito de medición y se simuló en Proteus con una pantalla LCD de 16×2, como pide la guía. En el prototipo físico la pantalla es una OLED, que muestra la misma información.
+La celda de carga es un sensor que tiene cuatro galgas extensiométricas conectadas en un puente de Wheatstone. Cuando se le pone peso, el puente se desbalancea y entrega una diferencia de voltaje muy pequeña. Con una alimentación de 5 V y una sensibilidad de 1 mV/V, que fue la que supusimos para el diseño, la celda entrega unos 5 mV a plena carga. Esa señal es demasiado pequeña para leerla directamente con el conversor del microcontrolador, así que primero hay que amplificarla. Para la simulación la celda se representó con un puente de resistencias en el que un potenciómetro hace de carga: al moverlo, el puente se desbalancea igual que lo haría el peso.
+La siguiente tabla muestra cómo quedó armada la cadena de medición.
+
+
+<img width="1216" height="372" alt="image" src="https://github.com/user-attachments/assets/47e2fb52-a80d-4aaa-a590-89fa93e440c9" />
+
+Puente y amplificador
+El puente tiene dos ramas. La izquierda son dos resistencias de 1 kΩ y da una referencia fija de 2,5 V. La derecha tiene dos resistencias de 998 Ω y el potenciómetro RV1 de 4 Ω, cuyo cursor da un voltaje que cambia con el peso. Con el cursor en 50 % el puente está balanceado, y eso corresponde a 0 g. Al llevarlo hacia 0 % el puente se desbalancea hasta 5 mV, que corresponden a 5000 g.
+
+La diferencia entre las dos ramas entra a un amplificador de instrumentación hecho con tres amplificadores operacionales OP07, que tienen un voltaje de offset muy bajo y por eso sirven para señales pequeñas de corriente continua. Los dos primeros (U3 y U4) amplifican la diferencia, y su ganancia se ajusta con la resistencia R15 de 510 Ω. El tercero (U5) es un restador que pasa esa diferencia a un voltaje respecto a tierra y le suma la referencia. La salida queda así:
+
+$$
+
+V_{out} = G\,(V_b - V_a) + V_{ref}, \qquad G = \left(1 + \frac{2\cdot 10\,\mathrm{k\Omega}}{510\,\Omega}\right)\cdot\frac{200\,\mathrm{k\Omega}}{10\,\mathrm{k\Omega}} \approx 40{,}2 \cdot 20 \approx 804
+
+$$
+
+La referencia sale de un divisor de voltaje con R20 y R23, y vale 5 V · 100 / (2400 + 100) = 0,2 V. Se suma a la salida para que 0 g no sea justo 0 V. Con los 5 mV de plena carga la salida sube 5 mV · 804 ≈ 4,02 V, así que va de 0,2 V a 4,22 V, dentro del rango de 0 a 5 V del conversor. Los OP07 se alimentan con +12 V y −12 V.
+
+Conversión y pantalla
+La salida pasa por un filtro RC (R22 de 10 kΩ y C5 de 100 nF) que corta el ruido por encima de unos 160 Hz y llega al canal ADC0 del ATmega328P. Ese conversor es de 10 bits y usa 5 V de referencia, o sea que cada cuenta vale 4,88 mV. Como cada gramo cambia la salida en 0,804 mV, el programa usa una constante k de 0,1648 cuentas por gramo, y N0 = 41 cuentas para el cero, que son los 0,2 V de la referencia. El peso se calcula con el promedio N de 16 lecturas:
+
+$$
+m = \frac{N - N_0}{k}, \qquad k = 0{,}1648\ \text{cuentas/g}, \quad N_0 = 41
+
+$$
+
+Con esta constante cada cuenta equivale a unos 6 g. Ese es el límite de un conversor de 10 bits, y en el prototipo no aplica porque el HX711 convierte con 24 bits.
+El programa también tiene un botón de tara (BTN2), que toma el valor del momento como nuevo cero. Muestra 0 cuando el peso queda dentro de ±3 g, para que el número no se mueva por el ruido, y escribe sobrecarga si se pasa de 5000 g. La pantalla LM016L se maneja en modo de 4 bits, la primera línea muestra el peso en gramos y la segunda las cuentas del ADC y el voltaje, y se actualiza cuatro veces por segundo.
+
+Valores esperados
+La siguiente tabla muestra lo que debería pasar con cada peso, calculado con una simulación del circuito y con el programa. Para probarlo en Proteus se mueve RV1 al porcentaje indicado.
+
+
+<img width="930" height="315" alt="image" src="https://github.com/user-attachments/assets/34a3c872-04a8-4ce0-adcf-df74cd9cd4a8" />
+
+
+Las pequeñas diferencias, de hasta 4 g, se deben a que el conversor entrega cuentas enteras.
+
+Simulación del circuito en Proteus
+El circuito se armó en Proteus con un segundo ATmega328P (U6) cargado con el programa de la balanza, la pantalla LM016L, el botón de tara, el puente con RV1 y los tres amplificadores OP07 con sus alimentaciones de +12 V y −12 V.
+
+En el prototipo el amplificador y el conversor son un solo chip, el HX711, que tiene un conversor de 24 bits. Este módulo se usa mucho como amplificador de bajo costo para celdas de carga, y en un estudio de fuerza muscular sus mediciones se parecieron a las de un acondicionador comercial y a las de un dinamómetro, con correlaciones entre 0,95 y 0,99 [14]. El HX711 lo lee la ESP32-S3, que muestra el peso en la pantalla OLED. Como cada celda real es distinta, en el prototipo no se usa la sensibilidad supuesta, sino una calibración con masas conocidas que se explica en la Parte B.
+
 
 Parte B 
 
