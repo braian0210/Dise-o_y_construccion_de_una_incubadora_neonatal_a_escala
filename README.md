@@ -48,7 +48,9 @@ Modos de control de temperatura: ON/OFF y PI
 En el control ON/OFF el calefactor solo tiene dos estados, encendido a plena potencia o apagado. Se enciende cuando la temperatura baja de un límite inferior y se apaga cuando sube de un límite superior. Esa diferencia entre los dos límites se llama histéresis, y sirve para que el calefactor no se encienda y apague a cada instante cuando la temperatura está justo en el borde. Es un control muy simple de construir, pero la temperatura nunca se queda quieta, sino que oscila todo el tiempo dentro de esa banda. 
 En el control PI, que es el proporcional-integral, la potencia no es de todo o nada, sino que se calcula en cada instante a partir del error, que es la diferencia entre la temperatura que se quiere y la que se mide. Una parte de la potencia es proporcional al error y la otra es proporcional a cuánto error se ha acumulado en el tiempo:
 
-u(t) = K_p\,e(t) + K_i \int_0^t e(\tau)\,d\tau
+$$
+u(t) = K_p e(t) + K_i \int_0^t e(\tau)\,d\tau
+$$
 
 
 3. Diseñe y simule un circuito eléctrico a modo de sistema de control de lazo
