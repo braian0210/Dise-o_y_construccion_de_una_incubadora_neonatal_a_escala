@@ -321,25 +321,45 @@ Mantener la temperatura de un recién nacido y saber cuánto pesa son dos tareas
 Referencias
 
 [1] C. G. K. Tran et al., “Designing a low-cost multifunctional infant incubator,” J. Lab. Autom., vol. 19, no. 3, pp. 332–337, jun. 2014. doi: 10.1177/2211068214530391. https://doi.org/10.1177/2211068214530391
+
 [2] L. Restrepo-Pérez, N. Durango-Londoño, N. E. Gómez-Suárez, F. González-Ramírez y N. Rivera-Bonilla, “Prototipo de incubadora neonatal,” Rev. Ing. Biomed., vol. 1, no. 1, pp. 55–59, 2007. http://www.scielo.org.co/pdf/rinbi/v1n1/v1n1a12.pdf
+
 [3] M. van Leeuwen et al., European Standards of Care for Newborn Health: Temperature management in newborn infants. EFCNI, nov. 2018. https://newborn-health-standards.org/standards/standards-english/care-procedures/temperature-management-in-newborn-infants/
+
 [4] R. B. Knobel-Dail, “Role of effective thermoregulation in premature neonates,” Res. Rep. Neonatol., vol. 4, pp. 147–156, 2014. doi: 10.2147/RRN.S52377. https://doi.org/10.2147/RRN.S52377
+
 [5] R. E. Black et al., “Global, regional, and national causes of child mortality in 2008: a systematic analysis,” Lancet, vol. 375, pp. 1969–1987, jun. 2010. doi: 10.1016/S0140-6736(10)60549-1. https://doi.org/10.1016/S0140-6736(10)60549-1
+
 [6] E. A. Dunne, C. P. F. O’Donnell, B. Nakstad y L. K. McCarthy, “Thermoregulation for very preterm infants in the delivery room: a narrative review,” Pediatr. Res., vol. 95, no. 6, pp. 1448–1454, 2024. doi: 10.1038/s41390-023-02902-w. https://doi.org/10.1038/s41390-023-02902-w
+
 [7] M. Kyokan, F. Rosa-Mangeret, M. Gani y R. E. Pfister, “Neonatal warming devices: what can be recommended for low-resource settings when skin-to-skin care is not feasible?,” Front. Pediatr., vol. 11, art. 1171258, 2023. doi: 10.3389/fped.2023.1171258. https://doi.org/10.3389/fped.2023.1171258
+
 [8] R. Cuervo, M. A. Rodríguez-Lázaro, R. Farré, D. Gozal, G. Solana y J. Otero, “Low-cost and open-source neonatal incubator operated by an Arduino microcontroller,” HardwareX, vol. 15, art. e00457, sep. 2023. doi: 10.1016/j.ohx.2023.e00457. https://doi.org/10.1016/j.ohx.2023.e00457
+
 [9] Z. Liu et al., “Design of a negative temperature coefficient temperature measurement system based on a resistance ratio model,” Sensors, vol. 24, no. 9, art. 2780, 2024. doi: 10.3390/s24092780. https://doi.org/10.3390/s24092780
+
 [10] K. J. Åström y T. Hägglund, Advanced PID Control. Research Triangle Park, NC, EE. UU.: ISA, 2006.
+
 [11] IEC 60601-2-19:2020, Medical electrical equipment – Part 2-19: Particular requirements for the basic safety and essential performance of infant incubators, ed. 3.0, International Electrotechnical Commission, Ginebra, 2020. https://webstore.iec.ch/en/publication/89860
-[12] Drägerwerk AG & Co. KGaA, “Isolette 8000 plus,” ficha del producto. https://www.draeger.com/es_es/Products/isolette-8000-plus (fuente comercial, solo para la comparación de la Parte B).
+
+[12] Drägerwerk AG & Co. KGaA, “Isolette 8000 plus,” ficha del producto. https://www.draeger.com/es_es/Products/isolette-8000-plus 
+
 [13] G. Noreiks, D. August, M. Lai y M. W. Davies, “Ceasing or gradually reducing incubator humidity after 7 days for extremely preterm infants: a randomised clinical trial,” Eur. J. Pediatr., vol. 184, no. 1, art. 66, 2024. doi: 10.1007/s00431-024-05893-w. https://doi.org/10.1007/s00431-024-05893-w
+
 [14] J. Gaudet y G. Handrigan, “Assessing the validity and reliability of a low-cost microcontroller-based load cell amplifier for measuring lower limb and upper limb muscular force,” Sensors, vol. 20, no. 17, art. 4999, 2020. doi: 10.3390/s20174999. https://doi.org/10.3390/s20174999
-[15] Instrumentalia S.A.S., “Incubadora Neonatal YP2000,” ficha del producto. https://instrumentalia.com.co/medicina/61297-incubadora-yp2000.html (consultado el 13 de octubre de 2026; fuente comercial, solo para la comparación de la Parte B).
-[16] LEEX Medical, “B3 Infant Incubator,” ficha del producto. https://leexmedical.com/en/product/b3-infantincubator/ (consultado el 13 de octubre de 2026; fuente comercial, solo para la comparación de la Parte B).
-[17] Soma Technology, Inc., “Dräger Isolette 8000,” especificaciones. https://www.somatechnology.com/incubators/drager-isolette-8000 (consultado el 13 de octubre de 2026; ficha de un distribuidor, solo para la comparación de la Parte B).
-[18] Bimedis, “DRAGER Isolette 8000 for Sale,” listado de equipos usados y reacondicionados. https://bimedis.com/drager-isolette-8000-m29517 (consultado el 13 de octubre de 2026; solo para la comparación de la Parte B).
-[19] First Medical International, “Dräger Isolette 8000 Incubator,” equipo reacondicionado. https://firstmedicalint.com/products/isolette-8000-incubator (consultado el 13 de octubre de 2026; solo para la comparación de la Parte B).
-[20] DOTmed, “Used DRAEGER Isolette 8000plus Infant Incubator For Sale, Listing #4891306.” https://www.dotmed.com/listing/infant-incubator/draeger/isolette-8000plus/4891306 (consultado el 13 de octubre de 2026; solo para la comparación de la Parte B).
-[21] IMEDS Colombia (Import Medical Supplies S.A.S.), “Incubadora neonatal B3,” tienda en línea. https://www.imedscolombia.com/tienda-on-line-1/incubadoras/ (consultado el 13 de octubre de 2026; precio sin IVA, solo para la comparación de la Parte B).
+
+[15] Instrumentalia S.A.S., “Incubadora Neonatal YP2000,” ficha del producto. https://instrumentalia.com.co/medicina/61297-incubadora-yp2000.html 
+
+[16] LEEX Medical, “B3 Infant Incubator,” ficha del producto. https://leexmedical.com/en/product/b3-infantincubator/ 
+[17] Soma Technology, Inc., “Dräger Isolette 8000,” especificaciones. https://www.somatechnology.com/incubators/drager-isolette-8000 
+.
+
+[18] Bimedis, “DRAGER Isolette 8000 for Sale,” listado de equipos usados y reacondicionados. https://bimedis.com/drager-isolette-8000-m29517 
+[19] First Medical International, “Dräger Isolette 8000 Incubator,” equipo reacondicionado. https://firstmedicalint.com/products/isolette-8000-incubator 
+
+[20] DOTmed, “Used DRAEGER Isolette 8000plus Infant Incubator For Sale, Listing #4891306.” https://www.dotmed.com/listing/infant-incubator/draeger/isolette-8000plus/4891306 
+
+[21] IMEDS Colombia (Import Medical Supplies S.A.S.), “Incubadora neonatal B3,” tienda en línea. https://www.imedscolombia.com/tienda-on-line-1/incubadoras/ 
+
 [22] N. Kumar, G. Akangire, B. Sullivan, K. Fairchild y V. Sampath, “Continuous vital sign analysis for predicting and preventing neonatal diseases in the twenty-first century: big data to the forefront,” Pediatr. Res., vol. 87, no. 2, pp. 210–220, 2020. doi: 10.1038/s41390-019-0527-0. https://doi.org/10.1038/s41390-019-0527-0
 
