@@ -52,11 +52,35 @@ $$
 u(t) = K_p e(t) + K_i \int_0^t e(\tau)\,d\tau
 $$
 
+La parte integral es la que permite que el error final sea cero, porque sigue aumentando la potencia mientras la temperatura no llegue a la deseada [10]. Para entregar una potencia intermedia se usa modulación por ancho de pulso (PWM), que consiste en encender y apagar el calefactor muy rápido y variar la fracción del tiempo que permanece encendido. Así el calefactor trabaja a la potencia justa y la temperatura se estabiliza en lugar de oscilar. Este es el control que terminamos usando.
+Por último, algunas incubadoras de bajo costo ya juntan varias de estas partes. La de Cuervo y colaboradores controla temperatura y humedad, mide el peso del bebé, tiene una cama inclinable y una alarma de temperatura independiente del control principal [8]. Esa alarma independiente se parece a nuestro corte por sobretemperatura, que apaga el calefactor aunque falle el controlador.
 
-3. Diseñe y simule un circuito eléctrico a modo de sistema de control de lazo
+
+2. Diseñe y simule un circuito eléctrico a modo de sistema de control de lazo
 cerrado, capaz de mantener la temperatura dentro de un rango 36°C y 37,5°C.
 
-4. Diseñe y simule un circuito eléctrico que mida el peso y lo muestre mediante
+El objetivo de este circuito es mantener la temperatura de la cabina entre 36 °C y 37,5 °C en lazo cerrado. Eso quiere decir que el sistema mide la temperatura, la compara con la que se quiere y ajusta el calefactor, y repite esto todo el tiempo. Como temperatura deseada (consigna) escogimos 36,75 °C, que queda justo en la mitad del rango y deja el mismo margen hacia los dos lados.
+
+La siguiente tabla muestra cómo quedó armado el lazo:
+
+
+<img width="1051" height="336" alt="image" src="https://github.com/user-attachments/assets/d97680ab-a6fd-4c18-b0b5-979fac946517" />
+
+
+Sensor de temperatura
+El NTC y la resistencia fija forman un divisor de voltaje que se conecta al conversor analógico-digital del microcontrolador. Cuando sube la temperatura, la resistencia del NTC baja y el voltaje cambia. El programa promedia 16 lecturas para reducir el ruido, calcula la resistencia del NTC a partir del voltaje y la pasa a temperatura con la ecuación beta [9]:
+
+$$
+
+\frac{1}{T} = \frac{1}{T_0} + \frac{1}{\beta}\ln\frac{R}{R_0}
+
+$$
+donde T0 = 298,15 K (25 °C), R0 = 10 kΩ y β = 3950 K.
+
+Controlador PI
+En el controlador la entrada es la temperatura medida, la salida es la fracción de potencia que se le manda al calefactor, y el estado es el valor acumulado del integrador. El error es la consigna menos la temperatura medida, y la potencia se calcula así:
+
+3. Diseñe y simule un circuito eléctrico que mida el peso y lo muestre mediante
 una pantalla de cristal líquido (LCD), o bien, mediante displays 7-segmentos.
 
 
