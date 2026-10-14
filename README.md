@@ -300,14 +300,16 @@ En lo que el prototipo hace, que es calentar por convección con un control PI, 
 
 
 
-• Pregunta 1: ¿Qué otras variables (y por qué) además de las aquí
-mencionadas son críticas en el monitoreo neonatal?
+• Pregunta 1: ¿Qué otras variables (y por qué) además de las aquí mencionadas son críticas en el monitoreo neonatal?
 
-• Pregunta 2: ¿Qué haría falta para convertir el sistema desarrollado en una
-incubadora neonatal real?
+Aparte de la Temperatura y el peso del neonato, en una incubadora hospitalaria también es necesario tener en cuenta la humedad relativa del ambiente dentro de la incubadora, esto debido a la humedad tan elevada que expenden de la piel, de la mano con esta, temperatura de la piel, para esta se suelen utilizar parches para medir la temperatura del bebe, en lugar de únicamente la ambiente, también un control de concentración de oxigeno, importante para casos muy comunes asociados a la respiración del bebe, donde se requieren concentraciones variadas dependiendo la deficiencia del proceso y medidos del flujo de aire para evitar estancamientos de calor y falsas lecturas por parte de los termistores.
 
-• Pregunta 3: ¿Qué semejanzas hay entre una incubadora neonatal y una
-servo-cuna?
+• Pregunta 2: ¿Qué haría falta para convertir el sistema desarrollado en una incubadora neonatal real?
+Las variables a medir y controlar establecidas en el punto anterior, una calibracion adecuada con pesos estandarizados y no medidos a ultimo momento, ademas de patrones confiables de peso, y un armado estable y fijado ademas de un  caparazon que recubra la zona del circuito y asi evitar la facilidad de interaccion entre el operador y el circuito, aislar completamente el circuito del calentamiento de la zona del neonato sin que el aire deje de circular y finalmente pasar oficialmente las pruebas de calidad estandarizadas.
+
+• Pregunta 3: ¿Qué semejanzas hay entre una incubadora neonatal y una servo-cuna?
+Lo que cambia usualmente es el método de calentamiento son las formas de acceso el bebe, pues una esta cerrada y la servocuna no, ambos manejan un metodo calefactor para mantener la temperatura deseada, diferenciándose en  el metodo, y por ende, aunque cumplen la misma función, el porque es necesario varia el  uso de una u otra. 
+
 
 Conclusión 
 
