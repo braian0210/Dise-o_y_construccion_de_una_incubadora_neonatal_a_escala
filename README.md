@@ -286,6 +286,7 @@ mencionadas son críticas en el monitoreo neonatal?
 
 • Pregunta 2: ¿Qué haría falta para convertir el sistema desarrollado en una
 incubadora neonatal real?
+
 • Pregunta 3: ¿Qué semejanzas hay entre una incubadora neonatal y una
 servo-cuna?
 
