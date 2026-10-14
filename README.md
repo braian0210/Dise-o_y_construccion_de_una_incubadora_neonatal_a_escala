@@ -260,6 +260,14 @@ Preguntas de Discusión y Resultados
 Para ver si el control funciona se hizo una prueba de calentamiento en el prototipo, con la tapa cerrada, y se comparó con la simulación de la Parte A. La prueba se hizo en una casa, con una temperatura ambiente de unos 23 °C, y la temperatura de la cabina se midió con la termocupla de un multímetro. No se llevó un registro escrito cada cierto tiempo, así que los valores de la prueba real son aproximados.
 
 
+<img width="900" height="1600" alt="image" src="https://github.com/user-attachments/assets/3a3017c7-74be-4b43-a440-ff0702fdb3c2" />
+
+
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/d265eb12-1403-42b2-a6a4-3ec68a138c7f" />
+
+
+
 <img width="662" height="206" alt="image" src="https://github.com/user-attachments/assets/d8808c98-0325-4c76-9625-bb50f82a9679" />
 
 
